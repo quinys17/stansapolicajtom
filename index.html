@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staň sa policajtom</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+    position: relative;
+    background-image: url('back.jpg'); /* nahraď ak máš nový názov obrázka */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Tu je zatmavenie */
+    z-index: 1;
+}
+
+header .header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: auto;
+}
+
+header h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 1.8em;
+    line-height: 1.6;
+}
+
+        
+        .btn {
+            display: inline-block;
+            background-color: #0057b7;
+            color: rgb(3, 3, 3);
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .sluzby-section {
+    position: relative;
+    background-image: url('ground.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    overflow: hidden;
+}
+
+.sluzby-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Zatmavenie */
+    z-index: 1;
+}
+
+.sluzby {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1300px;
+    margin: auto;
+    color: white;
+}
+
+.sluzba {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 380px;
+    flex: 1 1 300px;
+    text-align: left;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.sluzba:hover {
+    transform: translateY(-8px);
+}
+
+.sluzba img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.sluzba h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.sluzba p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Mobile responzívnosť */
+@media (max-width: 900px) {
+    .sluzby {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+        .cta-section {
+    position: relative;
+    background-image: url('jolop.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+.cta-section .cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Zatmavenie */
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.cta-content h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.police-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.police-form input,
+.police-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1em;
+}
+
+.police-form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.police-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responzívnosť */
+@media (max-width: 600px) {
+    .cta-content h2 {
+        font-size: 1.5em;
+    }
+}
+
+        .card {
+            max-width: 300px;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .card p {
+            margin-top: 10px;
+            text-align: left;
+        }
+        #formular {
+            padding: 40px 20px;
+            background-color: #f2f2f2;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #0057b7;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="overlay"></div>
+    <div class="header-content">
+        <h1>Prečo sa stať policajtom?</h1>
+        <p>Pretože byť súčasťou Policajného zboru nie je len o uniforme a znaku na hrudi. Je to o každodennom rozhodnutí stáť na strane spravodlivosti, chrániť tých, ktorí to potrebujú, a byť oporou spoločnosti v tých najťažších chvíľach. Ak chceš, aby tvoja práca mala zmysel, ak túžiš po tom byť súčasťou zmeny k lepšiemu – toto je tvoje miesto.</p>
+        <a href="#formular" class="btn">Pridať sa</a>
+    </div>
+</header>
+
+<section class="sluzby-section">
+    <div class="overlay"></div>
+    <div class="sluzby">
+        <div class="sluzba">
+            <img src="poriadkova.png" alt="Poriadková polícia">
+            <h2>Policajtov služby poriadkovej polície Policajného zboru vidíš asi najčastejšie.</h2>
+            <p>Niektoho na ulici prepadnú? Obeť alebo svedok zavolá na číslo 158. A kto príde zasiahnuť? Policajti služby poriadkovej polície. Sú prví tam, kde je potrebné okamžite chrániť život, zdravie alebo majetok.</p>
+            <p>Robia toho ale omnoho viac. Odhaľujú trestné činy aj priestupky. Niektoré veci aj sami vyšetrujú. Primárne dohliadajú na dodržiavanie verejného poriadku. A hoci je bezpečnosť na cestách prioritou služby dopravnej polície, keď je treba, pomôžu aj v cestnej premávke.</p>
+        </div>
+
+        <div class="sluzba">
+            <img src="dopravna.png" alt="Dopravná polícia">
+            <h2>Takmer každý z nás sa denne pohybuje po chodníkoch alebo cestách.</h2>
+            <p>Niekto ako chodec, iný ako cestujúci alebo vodič. Stávame sa tak účastníkmi cestnej premávky. No zároveň sme na cestách veľmi zraniteľní. Stret s vozidlom má často fatálne následky.</p>
+            <p>Dopravní policajti preto dohliadajú na bezpečnosť a plynulosť cestnej premávky. Keď je to potrebné, sami ju riadia. Objasňujú dopravné nehody, riešia priestupky. V autoškolách skúšajú budúcich vodičov, či sú na jazdu skutočne pripravení.</p>
+        </div>
+
+        <div class="sluzba">
+            <img src="krimi.png" alt="Kriminálna polícia">
+            <h2>Kriminalisti odhaľujú a objasňujú trestné činy.</h2>
+            <p>Využívajú pri tom rôzne kriminalistické techniky, ktoré sa môžeš aj Ty naučiť. Tí skúsenejší objasňujú organizovanú kriminalitu, ktorá je pre spoločnosť mimoriadne nebezpečná.</p>
+            <p>Vraždy, lúpeže, vydierania, požiare, výbuchy. Extrémizmus, rasizmus, krádeže alebo vlámania. Ako kriminalista sa môžeš popasovať aj s ekonomickou trestnou činnosťou. To všetko rieši „kriminálka“. Kriminálna polícia zisťuje totožnosť živých, aj mŕtvych, vrátane kostrových nálezov.</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="cta-section">
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+        <h2>Stať sa policajtom ťa delí už len toto a ostatné nechaj na nás</h2>
+
+        <!-- Tu môže ísť tvoj formulár alebo ďalší obsah -->
+        <form class="police-form">
+            <input type="text" placeholder="Meno a priezvisko">
+            <input type="email" placeholder="Email">
+            <input type="tel" placeholder="Telefón">
+            <textarea placeholder="Prečo sa chceš stať policajtom?"></textarea>
+            <button type="submit">Odoslať</button>
+        </form>
+    </div>
+</section>
+
+
+<script>
+document.getElementById('policiaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const meno = document.getElementById('meno').value;
+    const datum = document.getElementById('datum').value;
+    const utvar = document.getElementById('utvar').value;
+    const email = document.getElementById('email').value;
+
+    const webhookURL = "https://discord.com/api/webhooks/1389632750851461230/b5dFXc6U22bhhFfxBuqaUP-dPr6rIwA3c66vwMgsQJaeoSbM7pvvpf9yK1AysxDs9u7E";  // <<< Sem daj svoj Discord Webhook URL
+
+    const data = {
+        "embeds": [{
+            "title": "Nová prihláška na Policajný zbor",
+            "color": 3066993,
+            "fields": [
+                { "name": "Meno", "value": meno, "inline": true },
+                { "name": "Dátum narodenia", "value": datum, "inline": true },
+                { "name": "Útvar", "value": utvar, "inline": true },
+                { "name": "Email / Discord", "value": email, "inline": true }
+            ]
+        }]
+    };
+
+    fetch(webhookURL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        if(response.ok) {
+            alert("Úspešne odoslané!");
+            document.getElementById('policiaForm').reset();
+        } else {
+            alert("Chyba pri odosielaní. Skontroluj webhook URL.");
+        }
+    }).catch(error => {
+        console.error("Chyba:", error);
+        alert("Chyba pri odosielaní.");
+    });
+});
+</script>
+
+</body>
+</html>
